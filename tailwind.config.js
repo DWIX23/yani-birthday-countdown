@@ -1,5 +1,7 @@
+// c:\xampp\htdocs\yani\birthday-tracker\tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class', // <--- Ensure this line is present
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
