@@ -1,5 +1,6 @@
 // c:\xampp\htdocs\yani\birthday-tracker\src\App.jsx
 import { useEffect, useState, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { FaBirthdayCake, FaSun, FaMoon } from "react-icons/fa";
 import Confetti from "react-confetti";
@@ -7,10 +8,16 @@ import useSound from "use-sound";
 import Footer from './components/footer'; // Correct import
 
 // --- Configuration ---
-const BIRTHDAY_MONTH = 5; // May (1-based for easier comparison)
+const BIRTHDAY_MONTH = 5 // May (1-based for easier comparison)
 const BIRTHDAY_DAY = 11; // Example Day
 const BIRTHDAY_PERSON_NAME = "Dianarra Celestine";
 // ---------------------
+
+// Helper for month name
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+const BIRTHDAY_MONTH_NAME = MONTH_NAMES[BIRTHDAY_MONTH - 1]; // Get month name from 1-based index
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -246,6 +253,7 @@ function App() {
                 <h2 className="text-base md:text-lg font-semibold text-gray-700 dark:text-gray-400 text-center">
                 {BIRTHDAY_PERSON_NAME}'s Next Birthday In:
                 </h2>
+                {/* Time Units */}
                 <div className="flex justify-center gap-3 md:gap-4 text-pink-500 font-bold text-xl md:text-2xl w-full">
                 {Object.entries(timeLeft).map(([unit, value]) => (
                     <div key={unit} className="flex flex-col items-center bg-pink-50 dark:bg-gray-700 p-2 rounded-lg w-1/4">
@@ -254,6 +262,10 @@ function App() {
                     </div>
                 ))}
                 </div>
+                {/* Revisit Message */}
+                <p className="text-center text-gray-500 dark:text-gray-400 mt-4 px-2"> {/* Added margin-top, centering, padding */}
+                    Come back every {BIRTHDAY_MONTH_NAME} {BIRTHDAY_DAY} to celebrate!
+                </p>
             </motion.div>
             )}
 
